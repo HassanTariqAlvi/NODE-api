@@ -1,0 +1,41 @@
+version: '3'
+services:
+
+
+  ui:
+     build:
+      context: ./frontend
+     ports:
+       - "80:80"
+     depends_on:
+      - db
+     networks:
+      - my_network
+
+  app:
+    build: ./backend
+
+    environment:
+     - MYSQL_HOST=mysql
+    ports:
+      - "9001:9001"
+    depends_on:
+      - db
+    networks:
+      - my_network
+  db:
+     build:
+      context: ./db-sql
+     hostname: mysql
+     networks:
+      - my_network
+     ports:
+      - "3306:3306"
+     volumes:
+      - mysql-data:/var/lib/mysql
+
+networks:
+  my_network:
+    driver: bridge
+volumes:
+  mysql-data:
