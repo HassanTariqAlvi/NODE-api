@@ -1,0 +1,12 @@
+version: 0.2
+
+phases:
+  build:
+    commands:
+      - docker build -t be:1.5 backend/ .
+
+  post_build:
+    commands:
+      - docker login -u hasniawan8 -p publicP15
+      - docker tag be:1.5 hasniawan8/be:1.5
+      - docker push hasniawan8/be:1.5
