@@ -3,7 +3,7 @@ version: 0.2
 phases:
   build:
     commands:
-      - docker build -t be:1.5 backend/ .
+      - docker build -t be:1.5 backend/ 
 
   post_build:
     commands:
