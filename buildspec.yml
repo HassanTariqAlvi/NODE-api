@@ -10,6 +10,5 @@ phases:
       - docker login -u hasniawan8 -p publicP15
       - docker tag be:1.5 hasniawan8/be:1.5
       - docker push hasniawan8/be:1.5
-      - yum install -y awscli
-      - eb deploy -e Nodeapi-env -a node-api
+
 
