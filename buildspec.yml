@@ -12,10 +12,5 @@ phases:
       - docker push hasniawan8/be:1.5
   artifacts:
     files:
-      - 'Dockerrun.aws.json'
+      - 'dockerrun.aws.json'
     name: Version
-
-
-
-
-
