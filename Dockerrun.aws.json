@@ -1,7 +1,7 @@
 {
   "AWSEBDockerrunVersion": "1",
   "Image": {
-    "Name": "hasniawan8/fe:latest",
+    "Name": "hasniawan8/fe:1.3",
     "Update": "true"
   },
   "Ports": [
