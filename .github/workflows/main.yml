@@ -48,7 +48,7 @@ jobs:
           aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           application_name: Node
           environment_name: Node-env
-          version_label: 14
+          version_label: 15
           region: us-east-1
           deployment_package: deploy.zip
 
