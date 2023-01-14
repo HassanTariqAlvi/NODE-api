@@ -25,11 +25,4 @@ jobs:
           docker build -t hasniawan8/be:action -f backend/Dockerfile backend/
           docker push hasniawan8/be:action
           
-      - name: Deploy to Elastic Beanstalk
-        uses: aws-actions/elastic-beanstalk-deploy-action@v1
-        with:
-          region: us-west-2
-          application-name: my-app-name
-          environment-name: my-env-name
-          version-label: hasiawan8/be:action
-          wait-for-deployment: true
+
