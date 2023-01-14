@@ -20,10 +20,16 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_PASSWORD }}
 
-      - name: Build and push
-        uses: docker/build-push-action@v2
+      - name: Build and push API Image
+        run: |
+          docker build -t hasniawan8/be:action -f backend/Dockerfile backend/
+          docker push hasniawan8/be:action
+          
+      - name: Deploy to Elastic Beanstalk
+        uses: aws-actions/elastic-beanstalk-deploy-action@v1
         with:
-          context: ./backend
-          file: Dockerfile
-          push: true
-          tags: hasniawan8/be:action
+          region: us-west-2
+          application-name: my-app-name
+          environment-name: my-env-name
+          version-label: hasiawan8/be:action
+          wait-for-deployment: true
