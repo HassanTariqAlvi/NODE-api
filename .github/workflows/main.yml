@@ -45,8 +45,8 @@ jobs:
           aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           application_name: Node
           environment_name: Node-env
-          version_label: "docker-app-${{ steps.format-time.outputs.replaced }}"
-          region: us-west-2
+          version_label: 12
+          region: us-west-1
           deployment_file: Dockerrun.aws.json
 
           
