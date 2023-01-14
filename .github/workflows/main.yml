@@ -25,4 +25,31 @@ jobs:
           docker build -t hasniawan8/be:action -f backend/Dockerfile backend/
           docker push hasniawan8/be:action
           
+      - name: Get Timestamp
+        uses: gerred/actions/current-time@master
+        id: current-time
+
+      - name: Run String Replace
+        uses: frabert/replace-string-action@master
+        id: format-time
+        with:
+          pattern: '[:\.]+'
+          string: "${{ steps.current-time.outputs.time }}"
+          replace-with: '-'
+          flags: 'g'
+          
+      - name: Deploy to EB
+        uses: einaregilsson/beanstalk-deploy@v16
+        with:
+          aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          application_name: Node
+          environment_name: Node-env
+          version_label: "docker-app-${{ steps.format-time.outputs.replaced }}"
+          region: us-west-2
+          deployment_file: Dockerrun.aws.json
+
+          
+          
+          
 
