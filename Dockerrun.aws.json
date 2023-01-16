@@ -1,12 +1,12 @@
 {
   "AWSEBDockerrunVersion": "1",
   "Image": {
-    "Name": "hasniawan8/fe:1.3",
+    "Name": "hasniawan8/be:action",
     "Update": "true"
   },
   "Ports": [
     {
-      "ContainerPort": "80" 
+      "ContainerPort": "9001" 
     }
   ]
 }
