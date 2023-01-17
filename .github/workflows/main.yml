@@ -46,10 +46,10 @@ jobs:
         with:
           aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          application_name: Node
-          environment_name: Node-env
+          application_name: Nodeapi
+          environment_name: Nodeapi-env
           version_label: "docker-app-${{ steps.format-time.outputs.replaced }}"
-          region: us-west-1
+          region: us-east-1
           deployment_package: deploy.zip
 
 
