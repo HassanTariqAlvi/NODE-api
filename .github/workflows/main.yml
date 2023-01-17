@@ -49,7 +49,7 @@ jobs:
           application_name: Node
           environment_name: Node-env
           version_label: "docker-app-${{ steps.format-time.outputs.replaced }}"
-          region: us-east-1
+          region: us-west-1
           deployment_package: deploy.zip
 
 
